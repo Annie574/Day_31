@@ -4,7 +4,8 @@ from random import choice
 
 FONT = "Ariel"
 BACKGROUND_COLOR = "#B1DDC6"
-LANGUAGE = "french"
+#TODO Create GUI for choosing language
+LANGUAGE = "german" # or "french"
 TIME = 3
 
 
@@ -36,8 +37,8 @@ def next_card():
     window.after_cancel(flip_timer)
     random_word = choice(data_dictionary)
     main_view.itemconfig(card_view, image=image_front)
-    main_view.itemconfig(language_text, text="French", fill="black")
-    main_view.itemconfig(word_text, text=random_word["French"], fill="black")
+    main_view.itemconfig(language_text, text=f"{LANGUAGE.title()}", fill="black")
+    main_view.itemconfig(word_text, text=random_word[f"{LANGUAGE.title()}"], fill="black")
     flip_timer = window.after(3000, func=flip_card)
 
 def is_known():
